@@ -1,0 +1,33 @@
+/*
+ Theme Name:   OneEngine Child
+ Theme URI:    http://example.com/twenty-fourteen-child/
+ Description:  Twenty Fourteen Child Theme
+ Author:       John Doe
+ Author URI:   http://example.com
+ Template:     oneengine
+ Version:      1.0.0
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  twenty-fourteen-child
+*/
+
+
+@import url("../oneengine/style.css");
+
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+
+.parallax {
+    /*-webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;*/
+}
+
+.home .template-wrap {
+    position:inherit;
+}
+
+.home #header.stuck-sticky {
+    background: none;
+}
