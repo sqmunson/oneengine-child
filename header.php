@@ -38,6 +38,8 @@
     <link rel="apple-touch-icon" sizes="114x114" href="<?php echo oneengine_option('touch_icon_144', false, 'url'); ?>">
     <!-- Favicons / End -->
 
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
     <noscript>
         <style>
             #portfolio_list div.item a div.hover {

@@ -3,11 +3,11 @@
  * Template Name: Single Image Home Template
  */
 ?>
-<?php 
-global $post; 
+<?php
+global $post;
 get_header();
 ?>
-<?php if (have_posts()) : ?>                
+<?php if (have_posts()) : ?>
     <?php
         while(have_posts()) : the_post();
     ?>
@@ -20,7 +20,7 @@ get_header();
 </div>
 <!-- Container / End -->
     <?php endwhile; ?>
-<?php endif; ?>  
+<?php endif; ?>
 <?php //get_footer(); ?>
 
     </div><!-- #content -->
