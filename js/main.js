@@ -75,6 +75,7 @@ jQuery(document).ready(function($) {
 	$('#main-menu-top a,ul.slicknav_nav li a').click(function(event){
 		// console.log(this.href, event);
 		if (this.href.indexOf('#') < 0) {
+			console.log('YUP');
 			return;
 		}
 		event.stopPropagation();
