@@ -166,8 +166,15 @@
   ga('send', 'pageview');
 
 </script>
-<!-- </div> end #scroller -->
-<!-- </div> end #wrapper -->
+
+<?php
+    if (!is_front_page()) {
+        ?>
+            </div> <!-- end #scroller -->
+            </div> <!-- end #wrapper -->
+        <?php
+    }
+?>
 
 </body>
 </html>

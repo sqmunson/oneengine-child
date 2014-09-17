@@ -68,8 +68,14 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <!-- <div id="wrapper"> -->
-    <!-- <div id="scroller"> -->
+    <?php
+        if (!is_front_page()) {
+            ?>
+                <div id="wrapper">
+                <div id="skrollr-body">
+            <?php
+        }
+    ?>
 
     <!-- Preloading
     ======================================================================== -->

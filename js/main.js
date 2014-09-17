@@ -3,23 +3,25 @@ jQuery.fn.parallax = function(xpos, speedFactor) {
 
 	function isVisible() {
         var viewportHeight = window.innerHeight,
-            bounds = this[0].getBoundingClientRect();
+            bounds = this[0].parentElement.getBoundingClientRect();
 
         return bounds.bottom <= viewportHeight;
     }
 
     function getHeightOffset() {
-    	return Math.round(this[0].getBoundingClientRect().bottom - window.innerHeight);
+    	return Math.round(this[0].parentElement.getBoundingClientRect().bottom - window.innerHeight);
     }
 
 	var firstTop, methods;
 
 	return this.each(function(i, value) {
-		var $this = jQuery(value), firstTop = $this.offset().top;
+		var $this = jQuery(value),
+			firstTop = $this.offset().top;
 
-		if (xpos === null) {
-			xpos = "50%";
-		}
+
+		// if (xpos === null) {
+		// 	xpos = "50%";
+		// }
 
 		if (speedFactor === null) {
 			speedFactor = 0.1;
@@ -29,12 +31,23 @@ jQuery.fn.parallax = function(xpos, speedFactor) {
 			update: function() {
 				var pos = jQuery(window).scrollTop();
 
+				console.log(isVisible.call($this));
+
+
 				$this.each(function() {
+					// if (isVisible.call($this)) {
+					// 	$this.css('backgroundPosition', xpos + " " + getHeightOffset.call($this) * speedFactor + "px");
+					// } else {
+					// 	$this.css('backgroundPosition', xpos + " 0px");
+					// }
+
 					if (isVisible.call($this)) {
-						$this.css('backgroundPosition', xpos + " " + getHeightOffset.call($this) * speedFactor + "px");
+						console.log(pos * 0.1);
+						$this.css('marginTop', (pos * 0.2));
 					} else {
-						$this.css('backgroundPosition', xpos + " 0px");
+						$this.css('marginTop', 0);
 					}
+
 					// $this.css('backgroundPosition', xpos + " " + Math.round((firstTop - pos) * speedFactor) + "px");
 				});
 			},
@@ -56,6 +69,15 @@ jQuery(window).load(function() {
 
 jQuery(document).ready(function($) {
 
+	if (!$('body').hasClass('home')) {
+
+		$('#wrapper').attr('data-' + $('body').height(), 'top:-' + $('body').height());
+
+		skrollr.init({
+			forceHeight: false
+		});
+	}
+
 	// MENU RESPONSIVE
 	$('#menu-res').slicknav({
 		prependTo:'.menu-responsive'
@@ -75,7 +97,7 @@ jQuery(document).ready(function($) {
 	$('#main-menu-top a,ul.slicknav_nav li a').click(function(event){
 		// console.log(this.href, event);
 		if (this.href.indexOf('#') < 0) {
-			console.log('YUP');
+			// console.log('YUP');
 			return;
 		}
 		event.stopPropagation();
@@ -107,7 +129,7 @@ jQuery(document).ready(function($) {
 	});
 	// PARALLAX EFFECT
 	// $('.parallax').height($(this).parent().outerHeight());
-	$('.parallax').parallax("center", 0.3);
+	// $('._parallax').parallax();
 
 	// ANIMATION EFFECT
 	$('.animation-wrapper').waypoint(function() {
@@ -428,7 +450,7 @@ jQuery(function($){
     $(document).scroll(function(){
         var $this = $(this),
             pos   = $this.scrollTop();
-        console.log(sections);
+        // console.log(sections);
         for(i in sections){
             var bgcolor = $('#'+i).find('span.line-title').css('backgroundColor');
 

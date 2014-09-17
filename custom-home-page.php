@@ -229,6 +229,7 @@ get_header();
                 console.log(rect);
 
                 if (rect.top < 0) {
+                    console.log('HELLO FUCKER');
                     // need to resize to fit height
                     bubbleRectangle.css('width', 300);
                     widthWithBubble = calulateWidthWithBubble(bubble);
