@@ -32,7 +32,7 @@ the_post();
 ?>
 <!-- Blog Header
 ======================================================================== -->
-<div class="blog-header-wrapper">
+<div style="display:none;" class="blog-header-wrapper">
     <?php
         $color      = oneengine_option('header_blog_color');
         $img        = has_post_thumbnail($post->ID) ? wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) : oneengine_option('header_blog_img', false, 'url');
@@ -132,7 +132,7 @@ the_post();
 <!-- Container
 ======================================================================== -->
 
-<div class="container">
+<div class="container single-container">
     <div class="row">
         <div class="single-blog-desktop">
             <div class="col-md-1 col-sm-1 et-post-data-left single-blog">
@@ -154,7 +154,7 @@ the_post();
             </div>
         </div>
 
-        <div class="col-md-10" <?php post_class(); ?>>
+        <div class="col-md-9" <?php post_class(); ?>>
 
             <h1 class="title-single"><?php the_title(); ?></h1>
             <div class="post-content">

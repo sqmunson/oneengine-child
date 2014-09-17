@@ -35,8 +35,10 @@ get_header();
         $img        = ( ! empty ( $img ) )      ? ''.$bg_img.'' : '';
         $color      = ( ! empty ( $color ) )    ? 'background-color:'. $color .';' : '';
         $repeat     = ( ! empty ( $repeat ) )   ? ''. $bg_repeat .';' : '';
-        $cover      = ( ! empty ( $cover ) )    ? ''. $bg_cover .'' : '';
-        $parallax   = ( ! empty ( $parallax ) ) ? 'background-attachment: fixed;': '';
+        // $cover      = ( ! empty ( $cover ) )    ? ''. $bg_cover .'' : '';
+        $cover      = ( ! empty ( $cover ) )    ? '' : '';
+        // $parallax   = ( ! empty ( $parallax ) ) ? 'background-attachment: fixed;': '';
+        $parallax   = ( ! empty ( $parallax ) ) ? '': '';
 
 
         /** Style Container */
@@ -105,7 +107,7 @@ get_header();
                 }
             ?>
             <div class="animation-wrapper col-md-12">
-                <div class="heading-title-wrapper blog-page" style="color">
+                <div class="heading-title-wrapper blog-heading" style="color">
                     <h2 class="title" <?php echo $css_title_color ?>><?php echo oneengine_option('header_blog_title') ?></h2>
                     <span class="line-title" style="background-color:#cc467c"></span>
                     <span class="sub-title" <?php echo $css_sub_title_color ?>><?php echo oneengine_option('header_blog_subtitle') ?></span>
@@ -144,7 +146,7 @@ get_header();
 </div> -->
 <div class="site-inner">
     <div class="wrap">
-        <div class="container">
+        <div class="container press-page">
             <div class="row">
                 <div class="blog-wrapper animation-wrapper col-md-12" style="margin:10px 0 10px">
                     <div class="row" id="posts_container">

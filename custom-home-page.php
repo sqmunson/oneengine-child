@@ -10,8 +10,9 @@ get_header();
 
 <div class="main">
     <div class="wrapper">
+        <img src="wp-content/themes/oneengine-child/logo.svg" id="svg-logo" alt="Genesis Media Logo">
         <h1 id="harness">HARNESS THE POWER OF <span class="pink">ATTENTION</span></h1>
-        <div class="learn-more">Learn More</div>
+        <div class="learn-more"><a href="press">Learn More</a></div>
     </div>
 </div>
 
@@ -21,13 +22,14 @@ get_header();
         <div class="hover"></div>
         <div class="bubble-container">
             <div class="bubble">
-                <h2>David X.</h2>
+                <h2>Male 18-24</h2>
+                <p>G·A·P Analysis</p>
                 <ul>
-                    <li>Loves doing things</li>
-                    <li>Buys lots of stuff</li>
-                    <li>Drives a car</li>
-                    <li>Hates shopping</li>
-                    <li>Eats ice cream</li>
+                    <li>Watches 3 online videos daily</li>
+                    <li>Heavy online activity around noon</li>
+                    <li>Directed to sites from Facebook</li>
+                    <li>visits 5 different websites per session</li>
+                    <li>Shares Videos socially</li>
                 </ul>
             </div>
             <div class="triangle triangle-left"></div>
@@ -37,13 +39,14 @@ get_header();
         <div class="hover"></div>
         <div class="bubble-container">
             <div class="bubble">
-                <h2>Rachel A.</h2>
+                <h2>Health Guru</h2>
+                <p>G·A·P Analysis</p>
                 <ul>
-                    <li>Loves shopping</li>
-                    <li>Buys lots of shoes</li>
-                    <li>Rides bikes drunk</li>
-                    <li>Hates hairy men</li>
-                    <li>Eats sushi everyday</li>
+                    <li>Spends 20 minutes per site reading content</li>
+                    <li>Reads articles in NYC DMA</li>
+                    <li>Only shares health related articles</li>
+                    <li>Watches only 1 online video per month</li>
+                    <li>Blogs about health trends</li>
                 </ul>
             </div>
             <div class="triangle triangle-left"></div>
@@ -53,13 +56,14 @@ get_header();
         <div class="hover"></div>
         <div class="bubble-container">
             <div class="bubble">
-                <h2>Susan P.</h2>
+                <h2>Female 34+</h2>
+                <p>G·A·P Analysis</p>
                 <ul>
-                    <li>Loves watching TV</li>
-                    <li>Cooks lavish meals</li>
-                    <li>Hates the subway</li>
-                    <li>Leaves town on the weekend</li>
-                    <li>Eats healthy</li>
+                    <li>Heavy online consumption on weekends</li>
+                    <li>Interested in celebrity gossip</li>
+                    <li>Bounces from website to website</li>
+                    <li>Only visits websites from home computer</li>
+                    <li>Tweets articles every day</li>
                 </ul>
             </div>
             <div class="triangle triangle-left"></div>
@@ -69,13 +73,14 @@ get_header();
         <div class="hover"></div>
         <div class="bubble-container">
             <div class="bubble">
-                <h2>Megan B.</h2>
+                <h2>Working Woman</h2>
+                <p>G·A·P Analysis</p>
                 <ul>
-                    <li>Loves getting together with the ladies</li>
-                    <li>Buys more than she should</li>
-                    <li>Drives a Mercedes</li>
-                    <li>Hates bald men</li>
-                    <li>Eats kale salad everyday</li>
+                    <li>Only reads business related articles</li>
+                    <li>does not watch videos during the work day</li>
+                    <li>Browses the internet from three different states</li>
+                    <li>Spends majority of time on mobile device</li>
+                    <li>spends 2 minutes reading each article</li>
                 </ul>
             </div>
             <div class="triangle triangle-right"></div>
@@ -85,13 +90,13 @@ get_header();
         <div class="hover"></div>
         <div class="bubble-container">
             <div class="bubble">
-                <h2>Will T.</h2>
-                <ul>
-                    <li>Loves watching sports</li>
-                    <li>Buys useless stuff on eBay</li>
-                    <li>Rides a Vespa</li>
-                    <li>Hates when people text while walking</li>
-                    <li>Eats burgers</li>
+                <h2>Male 34+</h2>
+                <p>G·A·P Analysis</p>
+                    <li>Only watches videos</li>
+                    <li>Visits outdoor related websites</li>
+                    <li>Spends 1 hour a day online</li>
+                    <li>Watches camping videos</li>
+                    <li>Online occasionally</li>
                 </ul>
             </div>
             <div class="triangle triangle-right"></div>
@@ -101,13 +106,14 @@ get_header();
         <div class="hover"></div>
         <div class="bubble-container">
             <div class="bubble">
-                <h2>Bill W.</h2>
+                <h2>Businessman</h2>
+                <p>G·A·P Analysis</p>
                 <ul>
-                    <li>Loves cats</li>
-                    <li>Buys lots of cat food</li>
-                    <li>Doesn't drive</li>
-                    <li>Hates running out of milk</li>
-                    <li>Eats dinner alone</li>
+                    <li>Reads most of his day online</li>
+                    <li>Scans headlines of multiple sites</li>
+                    <li>Shares articles with colleagues</li>
+                    <li>Heavy online activity during lunch</li>
+                    <li>Buys everything online</li>
                 </ul>
             </div>
             <div class="triangle triangle-right"></div>
@@ -214,7 +220,7 @@ get_header();
                 if (rect.left >= 0 && widthWithBubble <= w) {
                     // use defaults
                     bubbleRectangle.css('left',0);
-                    bubbleTriangle.css('left', 50);
+                    bubbleTriangle.css('left', 75);
                 }
 
                 if (rect.width > w) {
@@ -225,10 +231,10 @@ get_header();
 
                 // move the triangle
                 if (pointRect.left < 20) {
-                    bubbleTriangle.css('left', 75 - pointRect.left);
+                    bubbleTriangle.css('left', 100 - pointRect.left);
                 }
                 if (pointRect.right > w - 20) {
-                    bubbleTriangle.css('left', 60 + w - pointRect.right);
+                    bubbleTriangle.css('left', 70 + w - pointRect.right);
                 }
 
                 // move the bubble
