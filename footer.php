@@ -8,7 +8,7 @@
  */
 ?>
 
-    </div><!-- #content -->
+    <!-- </div>#content -->
     <div class="clearfix"></div>
     <?php // if(is_front_page()){ ?>
     <footer id="contact" class="site-footer template-wrap" role="contentinfo">
@@ -168,7 +168,7 @@
 </script>
 
 <?php
-    if (!is_front_page()) {
+    if (!is_front_page() && !is_single()) {
         ?>
             </div> <!-- end #scroller -->
             </div> <!-- end #wrapper -->

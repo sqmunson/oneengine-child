@@ -83,6 +83,8 @@
 
 .blog-header-img img {
     position: relative;
+    width:100%;
+    min-width: 600px;
 }
 
 .home #header.stuck-sticky {

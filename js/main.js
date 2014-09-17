@@ -69,7 +69,7 @@ jQuery(window).load(function() {
 
 jQuery(document).ready(function($) {
 
-	if (!$('body').hasClass('home')) {
+	if (!$('body').hasClass('home') && !$('body').hasClass('single')) {
 
 		$('#wrapper').attr('data-' + $('body').height(), 'top:-' + $('body').height());
 

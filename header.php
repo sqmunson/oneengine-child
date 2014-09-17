@@ -69,7 +69,7 @@
 
 <body <?php body_class(); ?>>
     <?php
-        if (!is_front_page()) {
+        if (!is_front_page() && !is_single()) {
             ?>
                 <div id="wrapper">
                 <div id="skrollr-body">

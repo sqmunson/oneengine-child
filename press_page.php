@@ -208,6 +208,6 @@ get_header();
         </div>
     </div>
 </div>
-<div> <!-- needed for stupid footer closing div -->
+<!-- <div> needed for stupid footer closing div -->
 <!-- Container / End -->
 <?php get_footer(); ?>

@@ -93,6 +93,7 @@ get_header();
             <div class="bubble">
                 <h2>Male 34+</h2>
                 <p>G·A·P Analysis</p>
+                <ul>
                     <li>Only watches videos</li>
                     <li>Visits outdoor related websites</li>
                     <li>Spends 1 hour a day online</li>
