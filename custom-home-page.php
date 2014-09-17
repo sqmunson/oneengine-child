@@ -131,6 +131,7 @@ get_header();
                 BG_HEIGHT = 742,
                 BG_WIDTH = 1200,
                 BG_ASPECT_RATIO = BG_HEIGHT / BG_WIDTH,
+                popUpFlag = false,
                 points = [
                     {
                         x: 230,
@@ -245,8 +246,6 @@ get_header();
                     bubbleRectangle.css('left',  w - widthWithBubble);
                 }
             }
-
-            var popUpFlag = false;
 
             function doPopUp() {
                 // console.log('do', this);
