@@ -206,6 +206,16 @@ get_header();
                 });
             }
 
+            function calulateWidthWithBubble(bubble) {
+                var rect = bubble[0].getBoundingClientRect(),
+                    bubbleRectangle = $(bubble).find('.bubble');
+
+                return rect.left +
+                    bubbleRectangle.width() +
+                    parseInt(bubbleRectangle.css('padding-right').match(/(\d+)/)[0]) +
+                    parseInt(bubbleRectangle.css('padding-left').match(/(\d+)/)[0]);
+            }
+
             function setBubblePosition(bubble) {
                 var bubbleRectangle = $(bubble).find('.bubble'),
                     bubbleTriangle = $(bubble).find('.triangle'),
@@ -214,15 +224,19 @@ get_header();
                     h = window.innerHeight,
                     w = window.innerWidth;
 
-                var widthWithBubble = rect.left +
-                        bubbleRectangle.width() +
-                        parseInt(bubbleRectangle.css('padding-right').match(/(\d+)/)[0]) +
-                        parseInt(bubbleRectangle.css('padding-left').match(/(\d+)/)[0]);
+                var widthWithBubble = calulateWidthWithBubble(bubble);
+
+                console.log(rect);
+
+                if (rect.top < 0) {
+                    // need to resize to fit height
+                    bubbleRectangle.css('width', 300);
+                    widthWithBubble = calulateWidthWithBubble(bubble);
+                }
 
                 if (rect.left >= 0 && widthWithBubble <= w) {
                     // use defaults
                     bubbleRectangle.css('left',0);
-                    bubbleTriangle.css('left', 75);
                 }
 
                 if (rect.width > w) {
@@ -232,10 +246,16 @@ get_header();
                 }
 
                 // move the triangle
+                if (pointRect.left > 20 && pointRect.right < w - 20) {
+                    bubbleTriangle.css('left', 75);
+                }
+
                 if (pointRect.left < 20) {
+                    console.log('less than 20 to left');
                     bubbleTriangle.css('left', 100 - pointRect.left);
                 }
                 if (pointRect.right > w - 20) {
+                    console.log('less than 20 to right');
                     bubbleTriangle.css('left', 70 + w - pointRect.right);
                 }
 
