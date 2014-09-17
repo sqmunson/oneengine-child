@@ -10,7 +10,8 @@ get_header();
 
 <div class="main">
     <div class="wrapper">
-        <img src="wp-content/themes/oneengine-child/logo.svg" id="svg-logo" alt="Genesis Media Logo">
+        <img src="wp-content/themes/oneengine-child/logo_1x.png" class="logo-img" id="logo-home" alt="Genesis Media Logo">
+        <img src="wp-content/themes/oneengine-child/logo_2x.png" class="logo-img" id="logo-home_retina" alt="Genesis Media Logo">
         <h1 id="harness">HARNESS THE POWER OF <span class="pink">ATTENTION</span></h1>
         <div class="learn-more"><a href="press">Learn More</a></div>
     </div>
@@ -247,30 +248,42 @@ get_header();
                 }
             }
 
+            function isBubble(el) {
+                return el.className.indexOf('bubble-container') > -1;
+            }
+
+            function getBubbleId(el) {
+                return el.parentElement.id;
+            }
+
             function doPopUp() {
-                // console.log('do', this);
-                var isBubble = this.className.indexOf('bubble-container') > -1;
+                var isBub = isBubble(this),
+                    thisBubble = isBub ? this : $(this).next('.bubble-container'),
+                    id = getBubbleId(this);
 
                 popUpFlag = true;
 
-                if (isBubble) {
-                    $(this).addClass('active');
-                } else {
-                    $(this).next('.bubble-container').fadeIn(500);
-                    setBubblePosition($(this).next('.bubble-container'));
+                if (!isBub) {
+                    thisBubble.fadeIn(500);
+                    setBubblePosition(thisBubble);
                 }
+
+                $('.bubble-container').each(function() {
+                    if (getBubbleId(this) !== id) {
+                        $(this).fadeOut(500);
+                    }
+                })
             }
 
             function hidePopUp() {
-                // console.log('hide',this);
-                var isBubble = this.className.indexOf('bubble-container') > -1,
+                var isBub = isBubble(this),
                     self = this;
 
                 popUpFlag = false;
 
                 setTimeout(function() {
                     if (!popUpFlag) {
-                        if (isBubble) {
+                        if (isBub) {
                             $(self).fadeOut(300);
                         } else {
                             $(self).next('.bubble-container').fadeOut(300);
