@@ -246,8 +246,13 @@ get_header();
                 }
             }
 
+            var popUpFlag = false;
+
             function doPopUp() {
+                // console.log('do', this);
                 var isBubble = this.className.indexOf('bubble-container') > -1;
+
+                popUpFlag = true;
 
                 if (isBubble) {
                     $(this).addClass('active');
@@ -258,14 +263,21 @@ get_header();
             }
 
             function hidePopUp() {
-                console.log(this);
-                var isBubble = this.className.indexOf('bubble-container') > -1;
+                // console.log('hide',this);
+                var isBubble = this.className.indexOf('bubble-container') > -1,
+                    self = this;
 
-                if (isBubble) {
-                    $(this).fadeOut(300);
-                } else {
-                    $(this).next('.bubble-container').fadeOut(300);
-                }
+                popUpFlag = false;
+
+                setTimeout(function() {
+                    if (!popUpFlag) {
+                        if (isBubble) {
+                            $(self).fadeOut(300);
+                        } else {
+                            $(self).next('.bubble-container').fadeOut(300);
+                        }
+                    }
+                }, 500);
             }
 
             // kick things off!
