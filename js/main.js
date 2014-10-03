@@ -18,11 +18,6 @@ jQuery.fn.parallax = function(xpos, speedFactor) {
 		var $this = jQuery(value),
 			firstTop = $this.offset().top;
 
-
-		// if (xpos === null) {
-		// 	xpos = "50%";
-		// }
-
 		if (speedFactor === null) {
 			speedFactor = 0.1;
 		}
@@ -35,20 +30,11 @@ jQuery.fn.parallax = function(xpos, speedFactor) {
 
 
 				$this.each(function() {
-					// if (isVisible.call($this)) {
-					// 	$this.css('backgroundPosition', xpos + " " + getHeightOffset.call($this) * speedFactor + "px");
-					// } else {
-					// 	$this.css('backgroundPosition', xpos + " 0px");
-					// }
-
 					if (isVisible.call($this)) {
-						console.log(pos * 0.1);
 						$this.css('marginTop', (pos * 0.2));
 					} else {
 						$this.css('marginTop', 0);
 					}
-
-					// $this.css('backgroundPosition', xpos + " " + Math.round((firstTop - pos) * speedFactor) + "px");
 				});
 			},
 			init: function() {
@@ -127,9 +113,6 @@ jQuery(document).ready(function($) {
 	$("a#scroll_to").click(function(event) {
 		$.scrollTo("#header", 800);
 	});
-	// PARALLAX EFFECT
-	// $('.parallax').height($(this).parent().outerHeight());
-	// $('._parallax').parallax();
 
 	// ANIMATION EFFECT
 	$('.animation-wrapper').waypoint(function() {
