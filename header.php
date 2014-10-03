@@ -38,6 +38,8 @@
     <link rel="apple-touch-icon" sizes="114x114" href="<?php echo oneengine_option('touch_icon_144', false, 'url'); ?>">
     <!-- Favicons / End -->
 
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
     <noscript>
         <style>
             #portfolio_list div.item a div.hover {
@@ -66,6 +68,15 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <?php
+        if (!is_front_page() && !is_single()) {
+            ?>
+                <div id="wrapper">
+                <div id="skrollr-body">
+            <?php
+        }
+    ?>
+
     <!-- Preloading
     ======================================================================== -->
     <div class="mask-color">
@@ -97,18 +108,8 @@
                         <div class="logo">
                              <a href="<?php echo home_url(); ?>">
                                 <?php
-                                    $top   = '' ;
-                                    $left  = '' ;
-                                    $width = '' ;
-                                    if( oneengine_option('logo_top') != '' )$top    = 'top:'.oneengine_option('logo_top').'px;' ;
-                                    if( oneengine_option('logo_left') != '' )$left  = 'left:'.oneengine_option('logo_left').'px;';
-                                    if( oneengine_option('logo_width') != '' )$width = 'width:'.oneengine_option('logo_width').'px;';
-                                    if( oneengine_option('custom_logo', false, 'url') !== '' ){
-                                        echo '<div class="logo-wrapper" style="'.$width.$left.$top.'"><img src="'. oneengine_option('custom_logo', false, 'url') .'" alt="'.get_bloginfo( 'name' ).'" /></div>';
-                                    }else{
+                                    echo '<div class="logo-wrapper"><img src="'. get_stylesheet_directory_uri() . '/logo.svg" alt="'.get_bloginfo( 'name' ).'" /></div>';
                                 ?>
-                                    <div class="logo-img"><span>E</span></div>
-                                <?php } ?>
                              </a>
                         </div>
                     </div>

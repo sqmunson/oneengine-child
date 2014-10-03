@@ -8,7 +8,7 @@
  */
 ?>
 
-    </div><!-- #content -->
+    <!-- </div>#content -->
     <div class="clearfix"></div>
     <?php // if(is_front_page()){ ?>
     <footer id="contact" class="site-footer template-wrap" role="contentinfo">
@@ -84,7 +84,7 @@
                 <div class="col-md-12">
                     <div class="heading-title-wrapper" style="color">
                         <h2 class="title" <?php echo $css_title_color ?>><?php echo oneengine_option('footer_blog_title') ?></h2>
-                        <span class="line-title" style="background-color:#fff"></span>
+                        <span class="line-title" style="background-color:#ec248e"></span>
                         <span class="sub-title" <?php echo $css_sub_title_color ?>><?php echo oneengine_option('footer_blog_subtitle') ?></span>
                     </div>
                 </div>
@@ -139,13 +139,13 @@
                 <li><a href="<?php echo oneengine_option('google_plus'); ?>"><i class="fa fa-google-plus"></i></a></li>
                 <?php } ?>
                 <?php if(oneengine_option('pinterest') != '') {?>
-                <li><a href="<?php echo oneengine_option('pinterest'); ?>"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="<?php echo oneengine_option('pinterest'); ?>"><i class="fa fa-pinterest"></i></a></li>
                 <?php } ?>
                 <?php if(oneengine_option('flickr') != '') {?>
-                <li><a href="<?php echo oneengine_option('flickr'); ?>"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="<?php echo oneengine_option('flickr'); ?>"><i class="fa fa-flickr"></i></a></li>
                 <?php } ?>
                 <?php if(oneengine_option('linkedin') != '') {?>
-                <li><a href="<?php echo oneengine_option('linkedin'); ?>"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="<?php echo oneengine_option('linkedin'); ?>"><i class="fa fa-linkedin"></i></a></li>
                 <?php } ?>
             </ul>
             <div class="copyright">
@@ -156,5 +156,25 @@
     <?php // } ?>
 </div><!-- #page -->
 <?php wp_footer(); ?>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42474543-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<?php
+    if (!is_front_page() && !is_single()) {
+        ?>
+            </div> <!-- end #scroller -->
+            </div> <!-- end #wrapper -->
+        <?php
+    }
+?>
+
 </body>
 </html>
