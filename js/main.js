@@ -64,6 +64,63 @@ jQuery(document).ready(function($) {
 		});
 	}
 
+	function attachPressPageLoaders(button, items) {
+		var counter = 1;
+
+		$(button).click(function() {
+			var $items = $(items);
+			
+			if ($(this).text() === 'Show less') {
+				$items.each(function(index) {
+					if (index > 0) {
+						$(this).hide(500);
+					}
+				});
+				$(this).text('More');
+				counter = 1;
+			} else {
+				$($('.news-items')[counter++]).slideDown(500);
+			}
+
+			if ($items.length === counter) {
+				$(this).text('Show less');
+			}
+		});
+	}
+
+	attachPressPageLoaders('.more-news-button', '.news-items');
+
+	// PRESS PAGE
+	// (function() {
+	// 	var newsItems = 1,
+	// 		awardsItems = 1,
+	// 		pressItems = 1;
+
+	// 	$('.more-news-button').click(function() {
+	// 		var items = $('.news-items');
+			
+	// 		if ($(this).text() === 'Show less') {
+	// 			items.each(function(index) {
+	// 				if (index > 0) {
+	// 					$(this).hide(500);
+	// 				}
+	// 			});
+	// 			$(this).text('More');
+	// 			newsItems = 1;
+	// 		} else {
+	// 			$($('.news-items')[newsItems++]).slideDown(500);
+	// 		}
+
+	// 		console.log(items.length, newsItems);
+
+	// 		if (items.length === newsItems) {
+	// 			console.log('hello?');
+
+	// 			$(this).text('Show less');
+	// 		}
+	// 	});	
+	// }());
+
 	// MENU RESPONSIVE
 	$('#menu-res').slicknav({
 		prependTo:'.menu-responsive'

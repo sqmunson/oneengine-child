@@ -308,6 +308,14 @@ h1 {
     padding-bottom: 30px;
 }
 
+.news-items {
+    display:none;
+}
+
+.news-items:nth-child(1) {
+    display: block;
+}
+
 /*For parallax*/
 /*
 .mobile body {

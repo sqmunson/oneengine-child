@@ -154,49 +154,102 @@ get_header();
 
                             <h1 style="margin-bottom:30px;">In The News</h1>
 
-                            <?php
-                                $args = array( 'numberposts' => 10, 'category_name' => 'in-the-news' );
-                                $posts = get_posts( $args );
-                                foreach( $posts as $post ): setup_postdata($post);
+                            <div class="in-the-news">
 
-                                $url = get_post_meta(get_the_ID(), 'url', true);
-                            ?>
+                                <?php
+                                    $args = array( 'numberposts' => 50, 'category_name' => 'in-the-news' );
+                                    $posts = get_posts( $args );
+                                    $post_count = count($posts);
 
-                                <div style="margin-bottom:30px;">
-                                    <div>
-                                    <?php 
-                                        if ( has_post_thumbnail() ) {
-                                            the_post_thumbnail('thumbnail');
-                                        } 
+                                    for ($i = 0; $i < $post_count; $i++) { 
+                                        $post = $posts[$i];
+                                        setup_postdata($post);
+                                        $url = get_post_meta(get_the_ID(), 'url', true);
+                                ?>
+                                
+                                    <?php
+                                        if ($i % 10 === 0) {
+                                            ?> <div class="news-items"> <?php // opens the news-items div to hold 10 items
+                                        }
                                     ?>
+
+                                    <div style="margin-bottom:30px;">
+                                        <div>
+                                        <?php 
+                                            if ( has_post_thumbnail() ) {
+                                                the_post_thumbnail('thumbnail');
+                                            } 
+                                        ?>
+                                        </div>
+                                        <?php the_time('F j, Y');?>
+                                        <h1 class="title-blog"><a href="<?php echo $url; ?>" target="_blank"><?php the_title(); ?></a></h1>
                                     </div>
-                                    <?php the_time('F j, Y');?>
-                                    <h1 class="title-blog"><a href="<?php echo $url; ?>" target="_blank"><?php the_title(); ?></a></h1>
-                                </div>
+
+                                    <?php
+                                        if ($i !== 0 && (($i % 9 === 0) || ($i === ($post_count - 1)))) {
+                                            ?> </div> <?php // closes the news-items div containing 10 items (or less)
+                                        }
+                                    ?>
+
+                                <?php
+                                    } // end for loop
+                                    wp_reset_query();
+                                ?>
+
+                            </div> <!-- end of in-the-news -->
 
                             <?php
-                                endforeach;
-                                wp_reset_query();
+                                if ($post_count > 10) {
+                                    ?>
+                                        <span class="more-news-button">More</span>
+                                    <?php
+                                }
                             ?>
-
-
-
+                            
                             <h1 style="margin-bottom:30px;">Awards & Events</h1>
 
-                            <?php
-                                $args = array( 'numberposts' => 10, 'category_name' => 'awards-events' );
-                                $posts = get_posts( $args );
-                                foreach( $posts as $post ): setup_postdata($post);
-                            ?>
+                            <div class="awards-events">
 
-                                <div style="margin-bottom:30px;">
-                                    <?php the_content();?>
-                                    <h1 class="title-blog"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-                                </div>
+                                <?php
+                                    $args = array( 'numberposts' => 50, 'category_name' => 'awards-events' );
+                                    $posts = get_posts( $args );
+                                    $post_count = count($posts);
+
+                                    for ($i = 0; $i < $post_count; $i++) { 
+                                        $post = $posts[$i];
+                                        setup_postdata($post);
+                                        $url = get_post_meta(get_the_ID(), 'url', true);
+                                ?>
+                                    <?php
+                                        if ($i % 10 === 0) {
+                                            ?> <div class="awards-items"> <?php // opens the news-items div to hold 10 items
+                                        }
+                                    ?>
+
+                                    <div style="margin-bottom:30px;">
+                                        <?php the_content();?>
+                                        <h1 class="title-blog"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                                    </div>
+
+                                    <?php
+                                        if ($i !== 0 && (($i % 9 === 0) || ($i === ($post_count - 1)))) {
+                                            ?> </div> <?php // closes the news-items div containing 10 items (or less)
+                                        }
+                                    ?>
+
+                                <?php
+                                    } // end for loop
+                                    wp_reset_query();
+                                ?>
+
+                            </div> <!-- end of awards-events -->
 
                             <?php
-                                endforeach;
-                                wp_reset_query();
+                                if ($post_count > 10) {
+                                    ?>
+                                        <span class="more-awards-button">More</span>
+                                    <?php
+                                }
                             ?>
 
                         </div>
